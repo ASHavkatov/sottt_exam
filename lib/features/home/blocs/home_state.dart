@@ -5,7 +5,7 @@ enum HomeStatus{idle, loading, error}
 
 @freezed
 abstract class HomeState with _$HomeState{
-  const factory HomeState({required HomeStatus? status, required HomeModel? model}) = _HomeState;
+  const factory HomeState({required HomeStatus? status, required List<HomeModel>? model}) = _HomeState;
   factory HomeState.initial(){
     return HomeState(status: HomeStatus.loading, model: null);
   }

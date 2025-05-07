@@ -15,7 +15,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
 
   Future _load(HomeLoad event, Emitter<HomeState> emit) async {
     final model = await _repo.fetchHome();
-    emit(state.copyWith(model: model.isNotEmpty ? model.first : null, status: HomeStatus.idle));
+    emit(state.copyWith(model: model.isNotEmpty ? model : null, status: HomeStatus.idle));
 
   }
 }

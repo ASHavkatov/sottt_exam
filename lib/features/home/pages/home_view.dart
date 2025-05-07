@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:sott_exam/features/home/blocs/home_bloc.dart';
 import 'package:sott_exam/features/home/blocs/home_state.dart';
+
+import '../widgets/home_appbar_bottom.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
@@ -18,38 +19,50 @@ class HomeView extends StatelessWidget {
           HomeStatus.idle => Scaffold(
             body: CustomScrollView(
               slivers: [
-                SliverAppBar(
-                  expandedHeight: 200.0,
-                  floating: true,
-                  pinned: true,
-                  flexibleSpace: FlexibleSpaceBar(
-
-                    title: Text('SOTT',style: TextStyle(color: Colors.black),),
-                    background: Image.asset(
-                      'assets/images/background_photo.jpg',
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                ),
+                HomeAppBarBottom(),
                 SliverGrid(
-                  gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-                    maxCrossAxisExtent: 200.0,
-                    childAspectRatio: 1.0,
-                    crossAxisSpacing: 10.0,
-                    mainAxisSpacing: 10.0,
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                    crossAxisSpacing: 19,
+                    mainAxisSpacing: 20,
+                    childAspectRatio: 161 / 230,
                   ),
-                  delegate: SliverChildBuilderDelegate((
-                    BuildContext context,
-                    int index,
-                  ) {
-                    return ListTile(title: Text('Item $index'));
-                  }, childCount: 50),
+                  delegate: SliverChildBuilderDelegate((context, index) {
+                    return HomeContainer(image: state.model![index].image);
+                  },childCount: state.model!.length),
                 ),
               ],
             ),
           ),
         };
       },
+    );
+  }
+}
+
+class HomeContainer extends StatelessWidget {
+  const HomeContainer({super.key, required this.image});
+
+  final String image;
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 214,
+      width: 214,
+      child: Column(
+        spacing: 8,
+        children: [
+          SizedBox(
+            width: 169,
+            height: 128,
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(12),
+              child: Image.network(image, fit: BoxFit.cover),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
