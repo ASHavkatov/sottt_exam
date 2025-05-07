@@ -23,7 +23,7 @@ class HomeView extends StatelessWidget {
                   floating: true,
                   pinned: true,
                   flexibleSpace: FlexibleSpaceBar(
-                    ap
+
                     title: Text('SOTT',style: TextStyle(color: Colors.black),),
                     background: Image.asset(
                       'assets/images/background_photo.jpg',
