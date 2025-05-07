@@ -47,19 +47,15 @@ class HomeContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
+    return Container(
       height: 214,
-      width: 214,
+      width: 169,
       child: Column(
         spacing: 8,
         children: [
-          SizedBox(
-            width: 169,
-            height: 128,
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(12),
-              child: Image.network(image, fit: BoxFit.cover),
-            ),
+          ClipRRect(
+            borderRadius: BorderRadius.circular(12),
+            child: Image.network(image, fit: BoxFit.cover),
           ),
         ],
       ),
