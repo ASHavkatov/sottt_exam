@@ -17,7 +17,7 @@ class HomeKeyContainer extends StatelessWidget {
         color: AppColors.containerKey,
         borderRadius: BorderRadius.circular(12),
       ),
-      child: Center(child: SvgPicture.asset(svg)),
+      child: IconButton(onPressed:(){}, icon:  SvgPicture.asset(svg)),
     );
   }
 }

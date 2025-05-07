@@ -27,7 +27,7 @@ class HomeAppBarBottom extends StatelessWidget {
                 children: [
                   HomeKeyContainer(svg: 'assets/svg/key.svg'),
                   HomeKeyContainer(svg: 'assets/svg/shieldcheck.svg'),
-                  HomeKeyContainer(svg: 'assets/svg/clock.svg'),
+                  HomeKeyContainer(svg: 'assets/svg/clock2.svg'),
                   HomeKeyContainer(svg: 'assets/svg/buildings.svg'),
                 ],
               ),
@@ -47,6 +47,9 @@ class HomeAppBarBottom extends StatelessWidget {
               fontWeight: FontWeight.w900,
             ),
           ),
+          SizedBox(width: 150),
+          SvgPicture.asset("assets/svg/notification.svg"),
+
         ],
       ),
       actions: [
